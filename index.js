@@ -11,13 +11,13 @@ app.use(express.json({ limit: '1mb' }));
 
 app.get('/weather', async (request, response) => {;
     let newDate = Math.floor(Date.now() / 1000);
-    backDates = [];
-    for (i = 0; i < 5; i++) {
+    let backDates = [];
+    let periodsOnGraph = 6;
+    for (i = 0; i < periodsOnGraph; i++) {
         backDates.unshift(newDate - (i * 24 * 60 * 60));
     }
-    console.log(backDates);
     responseArray = [];
-    for (i = 0; i < 5; i++) {
+    for (i = 0; i < periodsOnGraph; i++) {
         const api_url = `http://api.openweathermap.org/data/2.5/onecall/timemachine?lat=51.5&lon=0&dt=${backDates[i]}&appid=${process.env.API_KEY}&units=metric`;
         const fetch_response = await fetch(api_url);
         const jsonWeather = await fetch_response.json();
