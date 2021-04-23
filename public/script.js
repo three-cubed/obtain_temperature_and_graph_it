@@ -1,11 +1,13 @@
 const fetchWeather = async () => {
     const response = await fetch('/weather').then(function(response) {
-        response.text().then(function(text) {
+        response.text()
+        .then(function(text) {
             parsed = JSON.parse(text);
             for (i = 0; i < parsed.length; i++) {
                 let temperatureArray = [];
                 parsed[i].hourly.forEach(hour => {
-                    document.getElementById('notes').innerHTML = 'Up-to-date data obtained from <i>api.openweathermap.org</i> and processed for display. <br>Data are for 51°30\' N, 0° W (North Greenwich). <br>Twenty-four-hour periods are measured back from the moment of loading the page, so, for example, "current" indicates the 24 hours preceeding loading.';
+                    document.getElementById('topNotes').innerText = '';
+                    document.getElementById('notes').innerHTML = 'Up-to-date data have been obtained from <i>api.openweathermap.org</i> and processed for display. Data are for 51°30\' N, 0° W (north Greenwich). <br><small>Twenty-four-hour periods are measured back from the moment of loading the page, so, for example, "current" actually indicates the 24 hours preceeding loading.</small>';
                     temperatureArray.push(hour.temp);
                 });
                 let dayMax = Math.max(...temperatureArray);

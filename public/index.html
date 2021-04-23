@@ -9,14 +9,16 @@
     <title>London temperatures</title>
   </head>
   <body>
-    <h1>Maximum and minimum temperatures for the last five days&ensp;<small><small>(London)</small></small></h1>
-    <br>
-    <div class='container'>
-      <canvas id='graph'></canvas>
+    <div id='overallConatiner' class='centredText'>
+        <h1>Maximum and minimum temperatures for the last five days&ensp;<small><small>(London)</small></small></h1>
+        <br>
+        <h3 id='topNotes'>Please wait while the latest data are obtained and processed. This may take several seconds...</h3>
+        <div class='container'>
+          <canvas id='graph' width = '1100' height = '550'></canvas>
+        </div>
+
+        <h3 id='notes' class='centredText'></h3>
     </div>
-
-    <h3><span id='notes'>Please wait while the latest data are obtained and processed. This may take several seconds...</span></h3>
-
     <script src="script.js"></script>
 
   </body>
