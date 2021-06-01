@@ -1,31 +1,22 @@
 const fetchWeather = async () => {
-    const response = await fetch('/weather').then(function(response) {
+    const response = await fetch('/data').then(function(response) {
         response.text()
         .then(function(text) {
-            parsed = JSON.parse(text);
-            for (i = 0; i < parsed.length; i++) {
-                let temperatureArray = [];
-                parsed[i].hourly.forEach(hour => {
-                    document.getElementById('topNotes').innerText = '';
-                    document.getElementById('notes').innerHTML = 'Up-to-date data have been obtained from <i>api.openweathermap.org</i> and processed for display. Data are for 51°30\' N, 0° W (north Greenwich). <br><small>Twenty-four-hour periods are measured back from the moment of loading the page, so, for example, "current" actually indicates the 24 hours preceeding loading.</small>';
-                    temperatureArray.push(hour.temp);
-                });
-                let dayMax = Math.max(...temperatureArray);
-                let dayMin = Math.min(...temperatureArray);
-                dayMaxima.push(dayMax);
-                dayMinima.push(dayMin);
-            }
+            parsedData = JSON.parse(text);
+            dayMaxima = parsedData[3];
+            dayMinima = parsedData[4];
         }).then(function() {
-            makeChart()
+            createChart();
+            writeNotes();
         })
     });
 }
 
 let dayMaxima = [];
 let dayMinima = [];
-fetchWeather()
+fetchWeather();
 
-function makeChart() {
+function createChart() {
     let graph = document.getElementById('graph').getContext('2d');
     Chart.defaults.defaultFontFamily = 'Lato';
     Chart.defaults.defaultFontSize = 25;
@@ -57,3 +48,18 @@ function makeChart() {
         }
     });
 }
+
+function writeNotes() {
+    document.getElementById('topNotes').innerHTML = 'Up-to-date data have been obtained from <i>api.openweathermap.org</i> and processed for display.';
+    document.getElementById('topNotes').innerHTML += `<br>The correlation between daily maximum and minimum temperatures is <span class="highlightedText">&ensp;${parsedData[0]}&ensp;</span>.`;
+    document.getElementById('topNotes').innerHTML += `<br>The standard deviation of daily maximum temperatures is <span class="highlightedText">&ensp;${parsedData[1]}&ensp;</span>`;
+    document.getElementById('topNotes').innerHTML += `, and that of daily minimum temperatures is <span class="highlightedText">&ensp;${parsedData[2]}&ensp;</span>.`;
+
+    document.getElementById('endNotes').innerHTML = '<br><br>Notes:'
+    document.getElementById('endNotes').innerHTML += '<br><small>Data are for 51°30\' N, 0° W (north Greenwich).</small>'
+    document.getElementById('endNotes').innerHTML += '<br><small>Correlation statistics are to one decimal place and standard deviation statistics are to two decimal places.</small>';
+    document.getElementById('endNotes').innerHTML += '<br><small>The correlation statistic provided is Pearson\'s coefficient of correlation.</small>';
+    document.getElementById('endNotes').innerHTML += '<br><small>Twenty-four-hour periods are measured back from the most recent piece of data available at the moment of loading the page.</small>';
+    document.getElementById('endNotes').innerHTML += '<br><small>For example, "current" actually indicates the most recent twenty-four hours of data available at the moment of loading.</small>';
+}
+

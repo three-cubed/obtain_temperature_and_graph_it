@@ -11,3 +11,8 @@
 .centredText {
     text-align: center;
 }
+
+.highlightedText {
+    background-color: yellow;
+    font-size: 24px;
+}

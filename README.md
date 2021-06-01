@@ -1,12 +1,17 @@
-Please note this project is functional but is still being developed and is not in its final form.
+### Temperature analysis
 
 #### Project Overview
 
 The aim of this project is to consume another API's data, to process that data to obtain particular information, and to display the processed data in graphical form.
 
-At the moment, the project obtains hourly data for the last five days of weather in London, calculates the daily temperature maxima and minima, and displays these as two lines on a graph. The original data come from *openweathermap.org*.
+The project obtains hourly data for the last five days of weather in London. It then:
+- calculates the daily temperature maxima and minima, and displays these as two lines on a graph;
+- calculates Pearson's correlation coefficient between the daily maximum and minimum figures;
+- calculates standard deviations for the daily maximum and minimum figures.
 
-The project uses NodeJS, ChartJS, & the Fetch API.
+The original data come from *openweathermap.org*.
+
+The project uses NodeJS, ChartJS,statistics.js, & the Fetch API.
 
 #### Before using the application
 
@@ -20,5 +25,7 @@ Before first use:
 
 #### Using the application
 
-Run `index.js` in the root directory. 
+Run `index.js` in the root directory, or go to the root directory and type `npm start` into the terminal. 
+
 Then go to `http://localhost:3010`.
+
