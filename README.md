@@ -1,4 +1,4 @@
-### Temperature analysis
+### Temperature data analysis
 
 #### Project Overview
 
@@ -11,7 +11,7 @@ The project obtains hourly data for the last five days of weather in London. It 
 
 The original data come from *openweathermap.org*.
 
-The project uses NodeJS, ChartJS,statistics.js, & the Fetch API.
+The project uses NodeJS, ChartJS, statistics.js, & the Fetch API.
 
 #### Before using the application
 

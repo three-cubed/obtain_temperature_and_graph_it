@@ -2,11 +2,11 @@ const express = require('express');
 const fetch = require('node-fetch');
 const Statistics = require('statistics.js');
 if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config({ path: './.env' })
+    require('dotenv').config({ path: './.env' })
 }
 
 const app = express();
-app.listen(3010, () => console.log('Starting server: http://localhost:3010'));
+app.listen(process.env.PORT || 3010, () => console.log('Starting server: http://localhost:3010'));
 app.use(express.static('public'));
 app.use(express.json({ limit: '1mb' }));
 
