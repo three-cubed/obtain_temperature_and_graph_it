@@ -61,4 +61,3 @@ const extractDataAndCalculateStatistics = async (APIresponseArray) => {
     standardDeviationOfMaxima = stats.standardDeviation(dayMaxima).toFixed(2);
     standardDeviationOfMinima = stats.standardDeviation(dayMinima).toFixed(2);
 }
-
