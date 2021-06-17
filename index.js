@@ -6,7 +6,6 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const app = express();
-app.listen(process.env.PORT || 3010, () => console.log('Starting server: http://localhost:3010'));
 app.use(express.static('public'));
 app.use(express.json({ limit: '1mb' }));
 
@@ -61,3 +60,5 @@ const extractDataAndCalculateStatistics = async (APIresponseArray) => {
     standardDeviationOfMaxima = stats.standardDeviation(dayMaxima).toFixed(2);
     standardDeviationOfMinima = stats.standardDeviation(dayMinima).toFixed(2);
 }
+
+app.listen(process.env.PORT || 3010, () => console.log('Starting server: http://localhost:3010'));

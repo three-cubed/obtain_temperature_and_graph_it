@@ -23,7 +23,7 @@ function createChart() {
     let maxiMiniChart = new Chart(graph, {
         type:'line',
         data:{
-            labels:['5 days ago', '4 days ago', '3 days ago', '2 days ago', 'yesterday', 'current'],
+            labels:['5 days ago', '4 days ago', '3 days ago', '2 days ago', 'yesterday', 'today'],
             datasets:[
                 {
                     label: '24-hour maximum temperature in ° C',
@@ -54,16 +54,16 @@ function writeNotes() {
     let topNotes = document.getElementById('topNotes');
     topNotes.innerHTML = 'Up-to-date data have been obtained from <i>api.openweathermap.org</i> and processed for display.';
     topNotes.innerHTML += `<br>The correlation between daily maximum and minimum temperatures is <span class="highlightedText">&ensp;${parsedData[0]}&ensp;</span>.`;
-    topNotes.innerHTML += `<br>The standard deviation of daily maximum temperatures is <span class="highlightedText">&ensp;${parsedData[1]}&ensp;</span>`;
-    topNotes.innerHTML += `, and that of daily minimum temperatures is <span class="highlightedText">&ensp;${parsedData[2]}&ensp;</span>.`;
+    topNotes.innerHTML += `<br>The standard deviation of daily maximum temperatures is <span class="highlightedText">&ensp;${parsedData[1]}° C&ensp;</span>`;
+    topNotes.innerHTML += `, and that of daily minimum temperatures is <span class="highlightedText">&ensp;${parsedData[2]}° C&ensp;</span>.`;
 
     let endNotes = document.getElementById('endNotes');
     endNotes.innerHTML = '<br><br>Notes:'
     endNotes.innerHTML += '<br><small>Data are for 51°30\' N, 0° W (north Greenwich).</small>'
     endNotes.innerHTML += '<br><small>Correlation statistics are to one decimal place and standard deviation statistics are to two decimal places.</small>';
     endNotes.innerHTML += '<br><small>The correlation statistic provided is Pearson\'s coefficient of correlation.</small>';
-    endNotes.innerHTML += '<br><small>Twenty-four-hour periods are measured back from the most recent piece of data available at the moment of loading the page.</small>';
-    endNotes.innerHTML += '<br><small>For example, "current" actually indicates the most recent twenty-four hours of data available at the moment of loading.</small>';
+    // endNotes.innerHTML += '<br><small>Twenty-four-hour periods are measured back from the most recent piece of data available at the moment of loading the page.</small>';
+    // endNotes.innerHTML += '<br><small>For example, "current" actually indicates the most recent twenty-four hours of data available at the moment of loading.</small>';
 }
 
 window.onresize = resizeChart;
