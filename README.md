@@ -11,7 +11,7 @@ The project obtains hourly data for the last five days of weather in London. It 
 
 The original data come from *openweathermap.org*.
 
-The project uses NodeJS, ChartJS, statistics.js, & the Fetch API.
+The project uses NodeJS, statistics.js, chart.js (via a source tag) & the Fetch API.
 
 #### Before using the application
 
@@ -25,7 +25,7 @@ Before first use:
 
 #### Using the application
 
-Run `index.js` in the root directory, or go to the root directory and type `npm start` into the terminal. 
+Go to the file `index.js` and run it, or go to the root directory and type `npm start` into the terminal. 
 
 Then go to `http://localhost:3010`.
 

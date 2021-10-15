@@ -1,4 +1,5 @@
 const express = require('express');
+
 const fetch = require('node-fetch');
 const Statistics = require('statistics.js');
 if (process.env.NODE_ENV !== 'production') {
@@ -8,6 +9,9 @@ if (process.env.NODE_ENV !== 'production') {
 const app = express();
 app.use(express.static('public'));
 app.use(express.json({ limit: '1mb' }));
+
+const favicon = require('serve-favicon');
+app.use(favicon('./favicon.png'));
 
 app.get('/data', async (request, response) => {
     APIresponseArray = [];
