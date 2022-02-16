@@ -29,3 +29,5 @@ Go to the file `index.js` and run it, or go to the root directory and type `npm 
 
 Then go to `http://localhost:3010`.
 
+#### Licence
+Attribution - NonCommercial - NoDerivatives 4.0 International (CC BY-NC-ND 4.0)
